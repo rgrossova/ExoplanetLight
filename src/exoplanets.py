@@ -95,7 +95,7 @@ class planet :
             """
 
     def loadSolarSystemPlanet(self, id) :
-        """ Load information for a solar system planet. 
+        """ Load information for a solar system planet.
             """
         SolarSystemPlanets = 'mercury venus earth mars jupiter saturn uranus neptune'.split()
 
