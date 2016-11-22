@@ -29,9 +29,7 @@ class planet :
             
             Parameters
             ----------
-            
             Mp    : The mass of the planet    [Mjup]
-            
             Rp    : The radius of the planet  [Rjup]
             
             """
@@ -45,19 +43,12 @@ class planet :
             
             Parameters
             ----------
-            
             a    : The semimajor axis of the orbit of the planet [AU]
-            
             e    : The eccentricity                [-]
-
             i    : The orbital inclination         [deg]
-            
             o    : The longitude of ascending node [deg]
-
             w    : The argument of periapse        [deg]
-            
             t0   : The time of periapse passage    [BJD]
-            
             P    : The orbital period              [days]
             
             """
@@ -76,11 +67,8 @@ class planet :
             
             Parameters
             ----------
-            
             Ms    : The mass of the parent star           [Msun]
-            
             Ls    : The luminosity of the parent star     [Lsun]
-            
             SType : The spectral type of the parent star  [OBAFGKM]
             
             """
