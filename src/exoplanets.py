@@ -45,64 +45,6 @@ class planet :
         SolarSystemPlanets = 'mercury venus earth mars jupiter saturn uranus neptune'.split()
 
 
-########### FUNCTION TO RETRIEVE STELLAR PARAMTERS ##############
-    def getPlanetParameters(object, catalogfile="") :
-    
-        if catalogfile :
-            # getting the catalogue from a local path
-            cata = oec.get_catalogue(catalogfile)
-        else :
-            # getting the catalogue from the default remote source
-            cata = oec.get_catalogue()
-    
-    
-        #-- Retrieve planet relevant information
-        planetstr = ".//planet[name='" + object + " b']"
-        planet = cata.find(planetstr)
-    
-        planetProps = 'mass radius period semimajoraxis eccentricity transittime temperature'.split()
-        plPropsVal = {}
-    
-        for p in planetProps :
-            plPropsVal[p] = []
-            if '+/-' in str(findvalue(planet,p)) :
-                for s in str(findvalue(planet,p)).split(' +/-') :
-                    plPropsVal[p].append(float(s))
-            elif '+' in str(findvalue(planet,p)) and '-' in str(findvalue(planet,p)):
-                for s in str(findvalue(planet,p)).split(' ') :
-                    plPropsVal[p].append(float(s))
-            else :
-                plPropsVal[p].append(str(findvalue(planet,p)))
-
-#-- uncomment below to print all planet properties
-#    for properties in cata.findall(planetstr+"/*"):
-#        print "\t" + properties.tag + ":", properties.text
-
-#-- Retrieve star relevant information
-        starstr = ".//star[name='" + object + "']"
-        star = cata.find(starstr)
-    
-        starProps = 'mass radius temperature magV magB magJ magH magK metallicity'.split()
-        starPropsVal = {}
-    
-        for p in starProps :
-            starPropsVal[p] = []
-            if '+/-' in str(findvalue(star,p)) :
-                for s in str(findvalue(star,p)).split(' +/-') :
-                    starPropsVal[p].append(float(s))
-            elif '+' in str(findvalue(star,p)) and '-' in str(findvalue(star,p)):
-                for s in str(findvalue(star,p)).split(' ') :
-                    starPropsVal[p].append(float(s))
-            else :
-                starPropsVal[p].append(str(findvalue(star,p)))
-
-
-#-- uncomment below to print all planet properties
-#    for properties in cata.findall(starstr+"/*"):
-#        print "\t" + properties.tag + ":", properties.text
-        return plPropsVal, starPropsVal
-###########################################
-
 
 
 
